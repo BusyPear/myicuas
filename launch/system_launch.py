@@ -94,6 +94,7 @@ def generate_launch_description():
     
     AGV_vel = float(os.environ.get('AGV_VEL', '0.3'))
     
+    """
     launch_description.append(
         Node(
            package='icuas26_competition',
@@ -107,6 +108,7 @@ def generate_launch_description():
                 {"yaml_path": AGV_yaml_path}
             ]
        ))
+       """
       
     # Add vel_mux nodes dynamically based on the number parameter
     for i in range(1, int(os.environ.get('NUM_ROBOTS', '4')) + 1):
