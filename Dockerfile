@@ -159,7 +159,10 @@ RUN cd $HOME/CrazySim/crazyflie-firmware \
 #install other ROS2 ws packages
 RUN mkdir -p $HOME/ros2_ws/src \
   && cd $HOME/ros2_ws/src \
-  && git clone https://github.com/IMRCLab/crazyswarm2 --recursive
+  && git clone https://github.com/IMRCLab/crazyswarm2 --recursive \
+  && cd crazyswarm2 \
+  && git checkout bd54392f91d5c3aa29d5c170b11359767ab105d1 \
+  && git submodule update --init --recursive
 
 #Adapting crazyflies.yaml for simulation
 RUN rm $HOME/ros2_ws/src/crazyswarm2/crazyflie/config/crazyflies.yaml
@@ -169,7 +172,10 @@ WORKDIR $HOME/ros2_ws/src
 #RUN git clone https://github.com/JMU-ROBOTICS-VIVA/ros2_aruco.git 
 RUN git clone https://github.com/larics/icuas26_competition.git
 RUN git clone https://github.com/larics/icuas25_msgs.git
-RUN git clone --recurse-submodules https://github.com/IMRCLab/motion_capture_tracking.git
+RUN git clone --recurse-submodules https://github.com/IMRCLab/motion_capture_tracking.git \
+  && cd motion_capture_tracking \
+  && git checkout 73da55a005c3c8ccd26e108ba627dbcd438f30f9 \
+  && git submodule update --init --recursive
 
 WORKDIR $HOME/ros2_ws/src/crazyswarm2/crazyflie/scripts
 COPY to_copy/crazyflie_server.py $HOME/ros2_ws/src/crazyswarm2/crazyflie/scripts/
