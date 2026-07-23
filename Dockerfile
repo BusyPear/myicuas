@@ -243,7 +243,7 @@ RUN bash -c "source /opt/ros/${ROS2_DISTRO}/setup.bash;source $HOME/ros2_ws/inst
 RUN echo "ros2_ws" >> $HOME/.bashrc && \
     echo "source_ros2" >> $HOME/.bashrc
 
-RUN mv $HOME/ros2_ws/install/lib/crazyflie/crazyflie_server $HOME/ros2_ws/install/lib/crazyflie/crazyflie_server.py
+
 
 WORKDIR $HOME
 COPY to_copy/aliases $HOME/.bash_aliases
