@@ -218,9 +218,9 @@ RUN apt-get update &&  apt-get upgrade -y && apt-get install -y \
 RUN apt install -y ros-${ROS2_DISTRO}-ros-gz${GZ_RELEASE}
 
 # Other stuff by us
-WORKDIR $HOME/ros2_ws/install/lib/crazyflie
-RUN cp $HOME/ros2_ws/src/crazyswarm2/crazyflie_examples/crazyflie_examples/vel_mux.py vel_mux.py
-RUN chmod +x vel_mux.py
+# WORKDIR $HOME/ros2_ws/install/lib/crazyflie
+# RUN cp $HOME/ros2_ws/src/crazyswarm2/crazyflie_examples/crazyflie_examples/vel_mux.py vel_mux.py
+# RUN chmod +x vel_mux.py
 WORKDIR $HOME/ros2_ws/src/icuas26_competition/startup
 RUN rm _setup.sh
 RUN rm session.yml
